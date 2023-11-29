@@ -12,7 +12,7 @@ export default function MainContent() {
         setText(e.target.value);
     }
     
-
+    
   return (
     <div style={{ 
       position: 'relative', 
@@ -52,7 +52,7 @@ export default function MainContent() {
           resize: 'none', // 사용자가 크기를 조절하지 못하도록 설정
           
         }}
-        onChange={(e)=>setText(e)}
+        onChange={(e)=>setText(e.target.value)}
 
       />
       <button style={{
@@ -73,8 +73,11 @@ export default function MainContent() {
   );
 
   async function sendOpinion (){
-    const opinion = text.target.value; //textArea에 있는 문장들 가져오기. 
+    let opinion = text //textArea에 있는 문장들 가져오기.
     console.log(opinion); 
+
+    // "http://221.138.161.26:4000/opinion"
+    // "http://localhost:4000/opinion"
 
     //의견 데이터 서버에 송부.
     const sendServer = await axios.post("http://localhost:4000/opinion", {
@@ -88,10 +91,12 @@ export default function MainContent() {
          return err;
        });
 
+        console.log(sendServer.data);
+
         if(sendServer.data.isSuccess === true){
           alert('의견이 성공적으로 전송되었습니다.');
          }else{
-          alert('의견 전송에 실패하였습니다. 관리자(조준기 형제)에게 문의해주세요 😭');
+          alert(`의견 전송에 실패하였습니다. \n 오류내용: ${sendServer.data.message} \n 관리자(조준기 형제)에게 문의해주세요😭`);
     }
   }
 

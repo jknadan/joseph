@@ -80,7 +80,7 @@ export default function MainContent() {
     // "http://localhost:4000/opinion"
 
     //의견 데이터 서버에 송부.
-    const sendServer = await axios.post("http://localhost:4000/opinion", {
+    const sendServer = await axios.post("http://221.138.161.26:4000/opinion", {
        data: {
          opinion: opinion
        }}).then((res)=>{

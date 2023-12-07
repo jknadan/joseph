@@ -1,0 +1,57 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* 사이드바 초기 위치를 오른쪽 바깥으로 설정 */
+    width: 250px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* 검은 배경에 투명도 적용 */
+    z-index: 1000;
+    transition: right 0.3s ease; /* 오른쪽에서 슬라이드되는 애니메이션 적용 */
+  }
+  
+  .sidebar.open {
+    right: 0; /* 사이드바가 열리면 오른쪽 끝에 나타나도록 설정 */
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    margin-top: 100px;
+    padding: 0;
+  }
+  
+  .sidebar li a {
+    color: white; /* 사이드바 내부 요소의 글자색을 하얀색으로 설정 */
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* 호버 효과 */
+  }
+  
+  .menu-button {
+    position: fixed;
+    top: 13px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1.2rem;
+    z-index: 1001;
+    transition: color 0.3s ease; /* 색상 변화에 애니메이션 적용 */
+    min-width: 44px; /* 최소 너비 설정 */
+    min-height: 44px; /* 최소 높이 설정 */
+    display: flex; /* 중앙 정렬을 위한 flexbox 사용 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+  }
+  
+  .menu-button.close {
+    content: 'X';
+    color: white; /* X 버튼 색상을 하양으로 변경 */
+  }
+  

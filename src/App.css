@@ -103,7 +103,7 @@
 /* 미디어 쿼리: 모바일 화면 */
 @media (max-width: 600px) {
   .header {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .paragraph {
@@ -111,8 +111,9 @@
   }
 
   .textarea {
-    max-width: 90%;
-    height: 300px;
+    /* max-width: 80%; */
+    max-width: 20rem;
+    height: 20rem;
   }
 
   .backgroundImage {

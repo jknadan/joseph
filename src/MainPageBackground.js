@@ -13,7 +13,8 @@ export default function MainPageBackground() {
         left: 0, 
         width: '100%', 
         height: '100%', 
-        backgroundColor: 'rgba(0, 0, 0, 0.6)' // 검은색 오버레이에 투명도 적용
+        backgroundColor: 'rgba(0, 0, 0, 0.6)', // 검은색 오버레이에 투명도 적용
+        zIndex:0
       }} />
     </div>
   );

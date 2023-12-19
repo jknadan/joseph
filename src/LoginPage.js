@@ -9,7 +9,9 @@ export default function LoginPage() {
     e.preventDefault();
     // 로그인 처리 로직
   };
-
+  const handleRegister = () => {
+    // 회원가입 처리 로직 또는 페이지 이동
+  };
   return (
     <div className="login-background">
       <form onSubmit={handleSubmit} className="login-form">
@@ -33,6 +35,8 @@ export default function LoginPage() {
           />
         </div>
         <button type="submit" className="submit-button">로그인</button>
+        {/* <p calssName="text"> 회원가입을 안하신 순장님은 회원가입을 진행해주세요! </p> */}
+        <button type="button" className="submit-button" onClick={handleRegister}>회원가입</button>
       </form>
     </div>
   );

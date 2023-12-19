@@ -22,7 +22,7 @@ export default function MainContent() {
         바울청에 오신 여러분을 환영합니다!
     </h1>
     <p className="paragraph">
-        아래에 자유롭게 의견을 작성해주세요. <br/> 건의사항, 기도제목, 응원 등 무엇이라도 좋습니다.
+        아래에 자유롭게 의견을 작성해주세요. <br/> 건의사항, 기도제목, 응원 등 무엇이라도 좋습니다 😁
     </p>
     <textarea
         className="textarea"

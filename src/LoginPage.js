@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css'; // Login.css 파일 임포트
 
 export default function LoginPage() {
+
+const navigate = useNavigate(); // useNavigate 사용
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,6 +15,7 @@ export default function LoginPage() {
   };
   const handleRegister = () => {
     // 회원가입 처리 로직 또는 페이지 이동
+    navigate("/register");
   };
   return (
     <div className="login-background">

@@ -54,7 +54,7 @@ export default function RegisterPage() {
         <input
           id="group"
           type="text"
-          placeholder="소속 순"
+          placeholder="소속 순(ex. 12)"
           value={group}
           onChange={(e) => setGroup(e.target.value)}
           className="register-input"
@@ -72,7 +72,7 @@ export default function RegisterPage() {
         />
 
         {/* 사용자 이름 입력 필드 */}
-        <label htmlFor="username">사용하고자 하는 아이디</label>
+        <label htmlFor="username">아이디</label>
         <input
           id="username"
           type="text"

@@ -54,7 +54,7 @@ export default function RegisterPage() {
         <input
           id="group"
           type="text"
-          placeholder="소속 순(ex. 12)"
+          placeholder="소속 순(ex. 12)" // '12순' 이렇게 적어도 숫자만 분리할 수  있도록
           value={group}
           onChange={(e) => setGroup(e.target.value)}
           className="register-input"

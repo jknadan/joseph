@@ -21,7 +21,7 @@ export default function Header() {
     <header style={{ 
       display: 'flex',
       justifyContent: 'space-between', 
-      alignItems: 'center', 
+      alignItems: 'center', // 가운데 정렬
       paddingLeft: '1rem', 
       backgroundColor: 'rgba(255, 255, 255, 0.95)', // 수정된 배경색
       position: 'relative', // 추가된 position 속성
@@ -32,7 +32,7 @@ export default function Header() {
       </a>
       <nav style={{ position: 'relative' }}>
           {/* 로그인 버튼 추가 */}
-          <button className="login-button" onClick={goToLogin}>
+          <button className="goToLoginPage" onClick={goToLogin}>
             로그인
           </button>
       <button className={`menu-button ${sidebarOpen ? 'close' : ''}`} onClick={toggleSidebar}>

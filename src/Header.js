@@ -32,7 +32,7 @@ export default function Header() {
       </a>
       <nav style={{ position: 'relative' }}>
           {/* 로그인 버튼 추가 */}
-          <button className="goToLoginPage" onClick={goToLogin}>
+          <button className="login-button" onClick={goToLogin}>
             로그인
           </button>
       <button className={`menu-button ${sidebarOpen ? 'close' : ''}`} onClick={toggleSidebar}>

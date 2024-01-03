@@ -40,10 +40,10 @@ export default function RegisterPage() {
   }
 
   // TODO: 추가적인 유효성 검사 로직 구현
-
+//http://221.138.161.26:4000
   // 회원가입 API에 데이터 전송
   try {
-    const response = await fetch('/users', { // 백엔드 API 엔드포인트로 변경 필요
+    const response = await fetch('http://localhost:4000/users', { // 백엔드 API 엔드포인트로 변경 필요
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

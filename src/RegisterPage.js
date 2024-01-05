@@ -34,11 +34,11 @@ export default function RegisterPage() {
     return;
   }
   // 만약 name,ID,group,phone에서 특수문자가 있다면 특수문자 즉시 제거 Validation
-//   const special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
-//     if (special_pattern.test(name) || special_pattern.test(ID) || special_pattern.test(group) || special_pattern.test(phone)) {
-//       alert('특수문자는 사용할 수 없습니다.');
-//       return;
-//     }
+  const special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+    if (special_pattern.test(name) || special_pattern.test(ID) || special_pattern.test(group) || special_pattern.test(phone)) {
+      alert('특수문자는 사용할 수 없습니다.');
+      return;
+    }
   // 만약 phone에서 숫자가 아닌 문자가 있다면 숫자 즉시 제거 Validation
   const number_pattern = /^[0-9]*$/; // 숫자만 입력 가능한 정규식
     if (!number_pattern.test(phone)) {

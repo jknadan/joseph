@@ -21,16 +21,33 @@ export default function RegisterPage() {
     e.preventDefault();
     // TODO: 회원가입 처리 로직 구현
     console.log(
-        `이름: ${name}, 
-        소속 순: ${group}, 
-        전화번호: ${phone}, 
-        아이디: ${ID}, 
-        비밀번호: ${password}, 
-        비밀번호 확인: ${confirmPassword}`
+        `name: ${name}, 
+        group: ${group}, 
+        phone: ${phone}, 
+        ID: ${ID}, 
+        password: ${password}, 
+        confirmPW: ${confirmPassword}`
       );
   // 유효성 검사 예시
   if (!name || !group || !phone || !ID || !password || !confirmPassword) {
     alert('모든 필드를 채워주세요.');
+    return;
+  }
+  // 만약 name,ID,group,phone에서 특수문자가 있다면 특수문자 즉시 제거 Validation
+//   const special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+//     if (special_pattern.test(name) || special_pattern.test(ID) || special_pattern.test(group) || special_pattern.test(phone)) {
+//       alert('특수문자는 사용할 수 없습니다.');
+//       return;
+//     }
+  // 만약 phone에서 숫자가 아닌 문자가 있다면 숫자 즉시 제거 Validation
+  const number_pattern = /^[0-9]*$/; // 숫자만 입력 가능한 정규식
+    if (!number_pattern.test(phone)) {
+      alert('숫자만 입력할 수 있습니다.');
+      return;
+    }
+  // 만약 phone에서 11자리를 초과한다면 경고창 띄우기
+  if (phone.length > 11) {
+    alert('11자리를 초과할 수 없습니다.');
     return;
   }
 
@@ -58,10 +75,12 @@ export default function RegisterPage() {
     });
 
     const data = await response.json();
+    console.log(response)
     
-    if (response.ok) {
+    if (data.isSuccess) {
       // 성공적인 회원가입 처리
       console.log('회원가입 성공:', data);
+      alert('회원가입 성공! 승인을 기다려주세요😇')
       // TODO: 로그인 페이지로 리디렉션 또는 상태 업데이트
     } else {
       // 서버에서 회원가입 오류 처리
@@ -74,6 +93,7 @@ export default function RegisterPage() {
     alert('회원가입 중 오류가 발생했습니다.');
   }
   };
+
   // group 필드에 한글 입력 금지
   const handleGroupChange = (e) => {
     const value = e.target.value;

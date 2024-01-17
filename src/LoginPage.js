@@ -23,6 +23,7 @@ const navigate = useNavigate(); // useNavigate 사용
       
       if (data.isSuccess) {
         console.log('로그인 성공:', data);
+        console.log(data.result["Access Token"])
         alert('로그인 성공!');
         // TODO: 로그인 후 페이지 리다이렉션 또는 상태 업데이트
       } else {

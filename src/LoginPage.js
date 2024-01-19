@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css'; // Login.css 파일 임포트
+import jwtAuth from './utils/jwtAuth'
 
 export default function LoginPage() {
 
@@ -23,9 +24,12 @@ const navigate = useNavigate(); // useNavigate 사용
       
       if (data.isSuccess) {
         console.log('로그인 성공:', data);
-        console.log(data.result["Access Token"])
+        console.log(data.result["Access Token"]);
+        jwtAuth.saveToken(data.result["Access Token"])
+        const result = jwtAuth.getUserInfo();
+        console.log(result);
         alert('로그인 성공!');
-        // TODO: 로그인 후 페이지 리다이렉션 또는 상태 업데이트
+        navigate("/"); // 메인 페이지로 이동
       } else {
         console.error('로그인 실패:', data);
         alert(data.message); // 오류 메시지 표시

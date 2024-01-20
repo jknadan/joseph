@@ -2,8 +2,9 @@
 import {jwtDecode} from 'jwt-decode';
 
 // jwt 토큰 저장
-const saveToken = (token) => {
-    localStorage.setItem('AccessToken', token);
+const saveToken = (accessToken,refreshToken) => {
+    localStorage.setItem('AccessToken', accessToken);
+    localStorage.setItem('RefreshToken',refreshToken);
 }
 
 // jwt 토큰 꺼내기

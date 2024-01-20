@@ -24,8 +24,9 @@ const navigate = useNavigate(); // useNavigate 사용
       
       if (data.isSuccess) {
         console.log('로그인 성공:', data);
-        console.log(data.result["Access Token"]);
-        jwtAuth.saveToken(data.result["Access Token"])
+        const accessToken = data.result["AccessToken"];
+        const refreshToken = data.result["RefreshToken"];
+        jwtAuth.saveToken(accessToken,refreshToken);
         const result = jwtAuth.getUserInfo();
         console.log(result);
         alert('로그인 성공!');

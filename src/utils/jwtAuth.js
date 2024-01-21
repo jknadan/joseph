@@ -1,5 +1,6 @@
 // jwtAuth.js
 import {jwtDecode} from 'jwt-decode';
+import {axios} from 'axios';
 
 // jwt 토큰 저장
 const saveToken = (accessToken,refreshToken) => {
@@ -35,6 +36,30 @@ const getUserInfo = () => {
         name: decoded.name 
     };
 };
+// refreshToken을 서버에 보내서 AccessToken을 재발급하기
+const sendRefreshToken = async () => {
+
+    const refreshToken = localStorage.getItem('RefreshToken');
+    if (!refreshToken) return null;
+    // refreshToken 서버에 보내서 유효기간 검증하기
+    try {
+        const response = await axios.get('YOUR_API_ENDPOINT', {
+            headers: {
+                'Authorization': `Bearer ${refreshToken}`
+            }
+        });
+
+        // 유효기간 검증 성공 처리
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        // 에러 처리
+        console.error("유효기간 검증 중 오류 발생:", error);
+        return null;
+    }
+
+
+}
 
 // 함수 내보내기
 const jwtAuth = {
